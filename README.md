@@ -20,16 +20,17 @@ Because of computational constraints, only a subset of the available data has be
 
 Establishing 'ground truth' can be a challenge for sentiment analysis tasks. Sarcasm, cultural differences, and language modalities can make it difficult to establish whether the sentiment is positive or negative, especially to what extent, e.g. on a scale of 1 to 10.
 
-Buscemi & Proverbio [1] observed that the same input in different languages (having translated using native speakers) had significant variance in sentiment scores when evaluated by both LLMs and humans.
+Buscemi & Proverbio^[1]^ observed that the same input in different languages (having translated using native speakers) had significant variance in sentiment scores when evaluated by both LLMs and humans.
 
 This arises a few pertinent questions:
-Should an LLM behave similarly to humans and account for such inherent variances that exist among languages and their speakers?
 
-Given the cultural and linguistic biases, should we 'adjust' or normalize the sentiment score to establish an unbiased global ground truth?
+_Should an LLM behave similarly to humans and account for such inherent variances that exist among languages and their speakers?_
+
+_Given the cultural and linguistic biases, should we 'adjust' or normalize the sentiment score to establish an unbiased global ground truth?_
 
 In the case of LLMs, this variance is observed, not only across languages, but also among the various LLMs. Some models tend to have consistently positive scores while others show a more balanced distribution.
 
-Either way, careful considerations are required when applying these findings to real-world applications especially if there are agentic actions triggered (AI or humans) based on the sentiment analysis outputs. For example, if Spanish users have a tendency towards lower sentiment scores, a company shouldn't be compelled to make unnecessary promotional offers or take corrective actions to boost their sentiment scores, as opposed to users in other regions.
+Either way, careful considerations are required when applying these findings to real-world applications especially if there are agentic actions triggered (AI or humans) based on the sentiment analysis outputs. For example, if Spanish users have a tendency towards lower sentiment scores, a company shouldn't be compelled to make unnecessary promotional offers or take corrective actions to boost their sentiment scores, when comparing performance across user groups.
 
 **References:**
 
