@@ -167,17 +167,17 @@ def load_and_prepare_data(train_data_dir, valid_data_dir, test_data_dir, tokeniz
 
     # Create datasets
     train_data = TextClassificationDataset(
-        train_dataset.select(range(100)), ##### EDIT THIS : REMOVE FILTER ######
+        train_dataset.select(range(1000)), ##### REMOVE SELECT FILTER TO PROCESS WHOLE DATASET ######
         tokenizer
     )
 
     valid_data = TextClassificationDataset(
-        valid_dataset.select(range(20)), ##### EDIT THIS : REMOVE FILTER ######
+        valid_dataset.select(range(200)), ##### REMOVE SELECT FILTER TO PROCESS WHOLE DATASET ######
         tokenizer
     )
 
     test_data = TextClassificationDataset(
-        test_dataset.select(range(10)), ##### EDIT THIS : REMOVE FILTER ######
+        test_dataset.select(range(100)), ##### REMOVE SELECT FILTER TO PROCESS WHOLE DATASET ######
         tokenizer
     )
 

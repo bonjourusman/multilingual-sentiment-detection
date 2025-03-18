@@ -4,7 +4,7 @@ from transformers import AutoTokenizer, AutoModelForSequenceClassification  # Hu
 import torch
 from torch.optim import AdamW # Optimizer for training
 from tqdm import tqdm   # Progress bar utilities
-from train.helpers import set_seed, load_and_prepare_data, calculate_accuracy # Helper functions created locally
+from helpers import set_seed, load_and_prepare_data, calculate_accuracy # Helper functions created locally
 
 def get_hyperparameters():
     """
@@ -15,7 +15,7 @@ def get_hyperparameters():
     """
 
     # Train for fewer epochs as sequence classification converges faster
-    num_epochs = 2 ##### EDIT THIS : CHANGE TO 8 ######
+    num_epochs = 8
 
     # Standard batch size that works well with most GPU memory
     batch_size = 16
@@ -32,9 +32,9 @@ if __name__ == '__main__':
 
     # Location of dataset
     # Source: https://huggingface.co/datasets/hungnm/multilingual-amazon-review-sentiment-processed
-    train_data_dir = './data/train.hf'
-    valid_data_dir = './data/valid.hf'
-    test_data_dir = './data/test.hf'
+    train_data_dir = '../data/train.hf'
+    valid_data_dir = '../data/valid.hf'
+    test_data_dir = '../data/test.hf'
 
     # Select model
     model_name = "openai-community/gpt2"

@@ -1,6 +1,5 @@
 from fastapi import FastAPI
-#from app.context import helpers as h
-from train import helpers as h
+from .context import helpers as h
 
 app = FastAPI()
 model_path = './finetuned_model'
