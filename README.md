@@ -22,7 +22,9 @@ While GPT-3 and GPT-4 are more powerful and pretrained to be more effective on s
 
 The dataset used for finetuning is preprocessed and split into training, validation, and test sets having 1.33M, 47.5k, and 47.5k records respectively.
 
-Because of computational constraints, only a subset of the downloaded data has been used for finetuning. Based on the accuracy metrics observed during training, I suggest using GPUs to process a larger corpus of data for better model performance.
+Because of computational constraints, only a subset of the downloaded data has been used for finetuning. Based on the accuracy metrics observed during training, I suggest using GPUs to process a larger corpus of data for better model performance. For instance, when finetuning with only 1,000 examples on a CPU, I noticed accuracy scores of 0.75 and above in the later epochs.
+
+To re-train, update the `load_and_prepare_data()` function in `helpers.py` and then run `train.py` to generate a new fine-tuned model using the training dataset and test its performance using the validation or test datasets.
 
 Also, when running this on cloud, data download isn't required. One can simply load the Dataset from the source and commence model training.
 
