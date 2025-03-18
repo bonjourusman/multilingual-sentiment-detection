@@ -1,8 +1,8 @@
 # multilingual-sentiment-analysis
 
-**Finetuning an LLM for multilingual sentiment analysis.**
+# Finetuning an LLM for multilingual sentiment analysis.
 
-In this project, I have fine-tuned a pre-trained LLM (ChatGPT-2) to perform sentiment analysis across a variety of languages.
+In this project, I have fine-tuned a pre-trained LLM (ChatGPT-2 by OpenAI) to perform sentiment analysis across a variety of languages.
 
 **Dataset:**
 `multilingual-amazon-review-sentiment-processed`
@@ -14,9 +14,25 @@ https://huggingface.co/datasets/hungnm/multilingual-amazon-review-sentiment-proc
 `text` : customer reviews in English, Japanese, German, French, Spanish, and Chinese
 `label` : binary sentiment used as ground truth
 
-Because of computational constraints, only a subset of the available data has been used for finetuning. Based on the accuracy metrics observed during training, I suggest using GPUs to process a larger corpus of data for better model performance.
+## Model Training
 
-## A word about sentiment analysis using LLMs
+I have used the transformer model named `openai-community/gpt2` with a classification head to perform binary classification of sentiments, with `0` as NEGATIVE and `1` as POSITIVE.
+
+While GPT-3 and GPT-4 are more powerful and pretrained to be more effective on sentiment analysis tasks, GPT-2 is not. Moreover, GPT-3 and GPT-4 come with a significant cost overhead. Therefore, by fine-tuning GPT-2, we can use it for sentiment analysis at little to no cost and achieve very good performance.
+
+The dataset used for finetuning is preprocessed and split into training, validation, and test sets having 1.33M, 47.5k, and 47.5k records respectively.
+
+Because of computational constraints, only a subset of the downloaded data has been used for finetuning. Based on the accuracy metrics observed during training, I suggest using GPUs to process a larger corpus of data for better model performance.
+
+Also, when running this on cloud, data download isn't required. One can simply load the Dataset from the source and commence model training.
+
+## API
+
+The repo also contains code for a local API created to call the finetuned model. Using the `analyze` endpoint, the API returns the sentiment, i.e. POSITIVE or NEGATIVE, for a given input text.
+
+The API and model can be packaged into a docker container and easily deployed to production on a cloud platform of choice, e.g. as a web service.
+
+## A word about sentiment analysis and LLMs
 
 Establishing 'ground truth' can be a challenge for sentiment analysis tasks. Sarcasm, cultural differences, and language modalities can make it difficult to establish whether the sentiment is positive or negative, especially to what extent, e.g. on a scale of 1 to 10.
 
