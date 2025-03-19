@@ -1,8 +1,8 @@
 # multilingual-sentiment-analysis
 
-# Finetuning an LLM for multilingual sentiment analysis.
+# Finetuning an LLM for multilingual sentiment detection.
 
-In this project, I have fine-tuned a pre-trained LLM (ChatGPT-2 by OpenAI) to perform sentiment analysis across a variety of languages.
+In this project, I have fine-tuned a pre-trained LLM (ChatGPT-2 by OpenAI) to perform sentiment detection across a variety of languages.
 
 **Dataset:**
 `multilingual-amazon-review-sentiment-processed`
@@ -18,7 +18,7 @@ https://huggingface.co/datasets/hungnm/multilingual-amazon-review-sentiment-proc
 
 I have used the transformer model named `openai-community/gpt2` with a classification head to perform binary classification of sentiments, with `0` as NEGATIVE and `1` as POSITIVE.
 
-While GPT-3 and GPT-4 are more powerful and pretrained to be more effective on sentiment analysis tasks, GPT-2 is not. Moreover, GPT-3 and GPT-4 come with a significant cost overhead. Therefore, by fine-tuning GPT-2, we can use it for sentiment analysis at little to no cost and achieve very good performance.
+While GPT-3 and GPT-4 are more powerful and pretrained to be more effective on sentiment detection tasks, GPT-2 is not. Moreover, GPT-3 and GPT-4 come with a significant cost overhead. Therefore, by fine-tuning GPT-2, we can use it for sentiment detection at little to no cost and achieve very good performance.
 
 The dataset used for finetuning is preprocessed and split into training, validation, and test sets having 1.33M, 47.5k, and 47.5k records respectively.
 
@@ -34,7 +34,7 @@ The repo also contains code for a local API created to call the finetuned model.
 
 The API and model can be packaged into a docker container and easily deployed to production on a cloud platform of choice, e.g. as a web service.
 
-## A word about sentiment analysis and LLMs
+## A word about sentiments and LLMs
 
 Establishing 'ground truth' can be a challenge for sentiment analysis tasks. Sarcasm, cultural differences, and language modalities can make it difficult to establish whether the sentiment is positive or negative, especially to what extent, e.g. on a scale of 1 to 10.
 
@@ -48,7 +48,7 @@ _Given the cultural and linguistic biases, should we 'adjust' or normalize the s
 
 In the case of LLMs, this variance is observed, not only across languages, but also among the various LLMs. Some models tend to have consistently positive scores while others show a more balanced distribution.
 
-Either way, careful considerations are required when applying these findings to real-world applications especially if there are agentic actions triggered (AI or humans) based on the sentiment analysis outputs. For example, if Spanish users have a tendency towards lower sentiment scores, a company shouldn't be compelled to make unnecessary promotional offers or take corrective actions to boost their sentiment scores, when comparing performance across user groups.
+Nevertheless, careful consideration is required when applying these findings to real-world applications especially if there are agentic actions triggered (AI or humans) based on the sentiment analysis outputs. For example, if Spanish users have a tendency towards lower sentiment scores, a company shouldn't be compelled to make unnecessary promotional offers or take corrective actions to boost their sentiment scores, when comparing performance across other user groups.
 
 **References:**
 
