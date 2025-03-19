@@ -1,4 +1,4 @@
-# multilingual-sentiment-analysis
+# multilingual-sentiment-detection
 
 # Finetuning an LLM for multilingual sentiment detection.
 
